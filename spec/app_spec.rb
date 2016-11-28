@@ -8,9 +8,6 @@ feature DB_server do
 
   scenario 'saves a value passed to it in a query string' do
     visit '/submit?name=Rory'
-    p Storage.array
-    
-    # expect(page).to have_content("Content saved to array")
     expect(Storage.array[1]).to eq("Rory")
   end
 

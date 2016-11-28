@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative 'models/storage.rb'
 
 class DB_server < Sinatra::Base
 
@@ -6,8 +7,7 @@ class DB_server < Sinatra::Base
     'Hello, Rory!'
   end
 
-  post '/submit' do
-    p params[:name]
+  get '/submit' do
     Storage.array << params[:name]
     redirect '/'
   end
