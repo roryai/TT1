@@ -14,7 +14,7 @@ feature DB_server do
   scenario 'returns a previously stored value' do
     visit '/set?name=Timmy'
     visit '/get?key=name'
-    expect(page).to have_content("Timmy")
+    expect(page).to have_content("Rory")
   end
 
 end
