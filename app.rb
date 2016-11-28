@@ -7,9 +7,13 @@ class DB_server < Sinatra::Base
     'Hello, Rory!'
   end
 
-  get '/submit' do
-    Storage.array << params[:name]
+  get '/set' do
+    Storage.array << params
     redirect '/'
+  end
+
+  get '/get' do
+    Storage.array[2][params[:key]]
   end
 
   run! if app_file == $0

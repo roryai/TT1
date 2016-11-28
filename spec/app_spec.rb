@@ -7,8 +7,14 @@ feature DB_server do
   end
 
   scenario 'saves a value passed to it in a query string' do
-    visit '/submit?name=Rory'
-    expect(Storage.array[1]).to eq("Rory")
+    visit '/set?name=Rory'
+    expect(Storage.array[1][:name]).to eq("Rory")
+  end
+
+  scenario 'returns a previously stored value' do
+    visit '/set?name=Timmy'
+    visit '/get?key=name'
+    expect(page).to have_content("Timmy")
   end
 
 end
