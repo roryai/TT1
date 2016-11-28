@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-class TT1 < Sinatra::Base
+class DB_server < Sinatra::Base
   get '/' do
     'Hello, Rory!'
   end
