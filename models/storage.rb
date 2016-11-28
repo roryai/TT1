@@ -1,9 +1,7 @@
 class Storage
 
-  attr_reader :array
+  class << self; attr_accessor :array end
 
-  def initialize
-    @array = []
-  end
+  @array = ['test string']
 
 end
