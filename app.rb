@@ -13,23 +13,12 @@ class DB_server < Sinatra::Base
   end
 
   get '/get' do
-    @xx = []
     Storage.array.each do |hash|
       hash.each do |k, v|
-        @xx << v if k == params[:key]
+        return v if k == params[:key]
       end
     end
-    @xx
   end
 
   run! if app_file == $0
-end
-
-# This returns only the first item to match the key given.
-get '/get' do
-  Storage.array.each do |hash|
-    hash.each do |k, v|
-      return v if k == params[:key]
-    end
-  end
 end
